@@ -1,15 +1,22 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, ContextTypes, ChatJoinRequestHandler
+from telegram.ext import (
+    ApplicationBuilder,
+    ContextTypes,
+    ChatJoinRequestHandler,
+    CommandHandler
+)
 import os
 import requests
 from io import BytesIO
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 APK_URL = os.environ.get("APK_URL")
-VIDEO_URL = os.environ.get("VIDEO_URL")      # main video
-VIDEO2_URL = os.environ.get("VIDEO2_URL")    # second video
+VIDEO_URL = os.environ.get("VIDEO_URL")
+VIDEO2_URL = os.environ.get("VIDEO2_URL")
+OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
 
 APK_CACHE = None
+USERS = set()
 
 # ================= APK LOAD =================
 def load_apk():
@@ -17,32 +24,28 @@ def load_apk():
     try:
         r = requests.get(APK_URL)
         APK_CACHE = r.content
-        print("✅ APK Loaded")
+        print("APK Loaded")
     except:
-        print("❌ APK load failed")
+        print("APK load failed")
 
 # ================= BUTTONS =================
 def main_buttons():
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("📩 GET VIP HACK", url="https://t.me/MANAGER_ARYAN_BOT?start=vip")],
-        [
-            InlineKeyboardButton("PROOF CHANNEL", url="https://t.me/ARYAN_PENEL_SET_UP_HACK"),
-            InlineKeyboardButton("👑 VIP CHANNEL", url="https://t.me/+0ogG7zQhrLJhYzJl")
-        ],
-        [
-            InlineKeyboardButton("GIFT CODE", url="https://t.me/+s7aocEiTgIU4ZDg1"),
-            InlineKeyboardButton("REGISTER LINK 🔗", url="https://www.jaiclub25.com/#/register?invitationCode=21223676469")
-        ],
-        [
-            InlineKeyboardButton("ADMIN CONTACT", url="https://t.me/MANAGER_ARYANN"),
-            InlineKeyboardButton("🚨 Live Chat Support", url="https://t.me/sandeepjaiswal123")
-        ],
-        [
-            InlineKeyboardButton("🎉 PERSONAL RECOVERY", url="https://t.me/MANAGER_ARYANN")
-        ]
+        [InlineKeyboardButton("📩 Get Vip Apk", url="https://t.me/MANAGER_ARYAN_BOT?start=vip")],
+
+        [InlineKeyboardButton("Proof Channel", url="https://t.me/ARYAN_PENEL_SET_UP_HACK")],
+        [InlineKeyboardButton("Vip Channel", url="https://t.me/+0ogG7zQhrLJhYzJl")],
+
+        [InlineKeyboardButton("Gift Code", url="https://t.me/+s7aocEiTgIU4ZDg1")],
+        [InlineKeyboardButton("Registration Link", url="https://www.jaiclub25.com/#/register?invitationCode=21223676469")],
+
+        [InlineKeyboardButton("Contact Admin", url="https://t.me/MANAGER_ARYANN")],
+        [InlineKeyboardButton("🚨 Live Chat Support", url="https://t.me/sandeepjaiswal123")],
+
+        [InlineKeyboardButton("💎 Personal Loss Recover", url="https://t.me/MANAGER_ARYANN")]
     ])
 
-# ✅ Second video button (FINAL)
+# ✅ second video button (emoji allowed here or not — optional)
 def second_video_button():
     return InlineKeyboardMarkup([
         [InlineKeyboardButton("Message", url="https://t.me/MANAGER_ARYANN")]
@@ -51,79 +54,95 @@ def second_video_button():
 # ================= JOIN =================
 async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.chat_join_request.from_user
-    chat_id = update.chat_join_request.chat.id
+    USERS.add(user.id)
 
-    try:
-        await context.bot.approve_chat_join_request(chat_id, user.id)
+    await context.bot.approve_chat_join_request(
+        update.chat_join_request.chat.id, user.id
+    )
 
-        # ✅ 1. Welcome
-        await context.bot.send_message(
-            chat_id=user.id,
-            text="""✅ I have successfully approved your request to join Bhai ( Jaiwin Games )!
+    # Welcome
+    await context.bot.send_message(
+        chat_id=user.id,
+        text="""✅ I have successfully approved your request to join Bhai ( Jaiwin Games )!
 
-👤 Request To: 𝘼𝙍𝙔𝘼𝙉
+👤 Request To: Aryan
 
 🚀 Click below & get instant access 👇"""
-        )
+    )
 
-        # ✅ 2. MAIN VIDEO + BUTTONS
-        if VIDEO_URL:
-            await context.bot.send_video(
-                chat_id=user.id,
-                video=VIDEO_URL,
-                caption="""📊 Your Hack is Ready Like a Pro!! ✨
+    # Main Video
+    if VIDEO_URL:
+        await context.bot.send_video(
+            chat_id=user.id,
+            video=VIDEO_URL,
+            caption="""📊 Your Hack is Ready Like a Pro!! ✨
 
-🛑 Welcome To Vip Number Panel Bot 🔷
+Welcome To Vip Number Panel Bot
 
-🚨 Join All Channels To Get Vip Number Panel 🔓
+Join all channels to get vip panel
 https://www.jaiclub25.com/#/register?invitationCode=21223676469
 
-ADMIN CONTACT:- @MANAGER_ARYANN
-➕Minimum Deposit -₹300/500₹
-🟢 Daily Profit Limit
-📈 UpTo ~ ₹50000
+Admin Contact: @MANAGER_ARYANN
+Minimum Deposit: ₹300/500
+Daily Profit Limit
+UpTo ~ ₹50000
 
-🛑 JAI CLUB TOOL INSTALL NOW 🛑""",
-                reply_markup=main_buttons()
-            )
+Install Tool Now""",
+            reply_markup=main_buttons()
+        )
 
-        # ✅ 3. SECOND VIDEO + MESSAGE BUTTON (NO CAPTION)
-        if VIDEO2_URL:
-            await context.bot.send_video(
-                chat_id=user.id,
-                video=VIDEO2_URL,
-                reply_markup=second_video_button()
-            )
+    # Second Video (no caption + button)
+    if VIDEO2_URL:
+        await context.bot.send_video(
+            chat_id=user.id,
+            video=VIDEO2_URL,
+            reply_markup=second_video_button()
+        )
 
-        # ✅ 4. APK SEND
-        if APK_CACHE:
-            file = BytesIO(APK_CACHE)
-            file.name = "VIP.apk"
+    # APK
+    if APK_CACHE:
+        file = BytesIO(APK_CACHE)
+        file.name = "VIP.apk"
 
-            await context.bot.send_document(
-                chat_id=user.id,
-                document=file,
-                filename="VIP.apk",
-                caption="""✔️ JAI CLUB GAME 2026 PRO ➡️HACK ⚡️
+        await context.bot.send_document(
+            chat_id=user.id,
+            document=file,
+            caption="""✔️ JAI CLUB GAME 2026 PRO ➡️HACK ⚡️
 
-💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯 ➕Minimum Deposit -₹300/500₹
-🟢 Daily Profit Limit
-📈 UpTo ~ ₹50000
+💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯"""
+        )
 
-🛑 JAI CLUB TOOL INSTALL NOW 🛑"""
-            )
+# ================= BROADCAST =================
+async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id != OWNER_ID:
+        return
 
-    except Exception as e:
-        print(e)
+    if not update.message.reply_to_message:
+        await update.message.reply_text("Reply to a message to broadcast")
+        return
+
+    msg = update.message.reply_to_message
+    sent = 0
+
+    for user_id in USERS:
+        try:
+            await msg.copy(chat_id=user_id)
+            sent += 1
+        except:
+            pass
+
+    await update.message.reply_text(f"Broadcast sent to {sent} users")
 
 # ================= MAIN =================
 def main():
     load_apk()
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
-    app.add_handler(ChatJoinRequestHandler(join_request))
 
-    print("🚀 Bot Running...")
+    app.add_handler(ChatJoinRequestHandler(join_request))
+    app.add_handler(CommandHandler("broadcast", broadcast))
+
+    print("Bot Running...")
     app.run_polling()
 
 if __name__ == "__main__":
