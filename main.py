@@ -24,18 +24,18 @@ def load_apk():
 # ================= BUTTONS =================
 def main_buttons():
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("📩 GET VIP APK", url="https://t.me/MANAGER_ARYAN_BOT?start=vip")],
+        [InlineKeyboardButton("📩 GET VIP HACK", url="https://t.me/MANAGER_ARYAN_BOT?start=vip")],
         [
-            InlineKeyboardButton("📸 PROOF CHANNEL", url="https://t.me/ARYAN_PENEL_SET_UP_HACK"),
+            InlineKeyboardButton("PROOF CHANNEL", url="https://t.me/ARYAN_PENEL_SET_UP_HACK"),
             InlineKeyboardButton("👑 VIP CHANNEL", url="https://t.me/+0ogG7zQhrLJhYzJl")
         ],
         [
-            InlineKeyboardButton("🎁 GIFT CODE", url="https://t.me/+s7aocEiTgIU4ZDg1"),
-            InlineKeyboardButton("📝 REGISTRATION", url="https://www.jaiclub25.com/#/register?invitationCode=21223676469")
+            InlineKeyboardButton("GIFT CODE", url="https://t.me/+s7aocEiTgIU4ZDg1"),
+            InlineKeyboardButton("REGISTER LINK 🔗", url="https://www.jaiclub25.com/#/register?invitationCode=21223676469")
         ],
         [
-            InlineKeyboardButton("🧿 CONTACT ADMIN", url="https://t.me/MANAGER_ARYANN"),
-            InlineKeyboardButton("🚨 LIVE SUPPORT", url="https://t.me/sandeepjaiswal123")
+            InlineKeyboardButton("ADMIN CONTACT", url="https://t.me/MANAGER_ARYANN"),
+            InlineKeyboardButton("🚨 Live Chat Support", url="https://t.me/sandeepjaiswal123")
         ],
         [
             InlineKeyboardButton("🎉 PERSONAL RECOVERY", url="https://t.me/MANAGER_ARYANN")
