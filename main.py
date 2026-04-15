@@ -48,7 +48,7 @@ def main_buttons():
             InlineKeyboardButton("Sureshot Vip", url="https://t.me/MANAGER_ARYANN")
         ],
 
-        [InlineKeyboardButton("💎 Personal Loss Recover", url="https://t.me/MANAGER_ARYANN")],
+        [InlineKeyboardButton("💎 Personal Loss Recover", url="https://t.me/m/Xg7IhuhdZWM1")],
 
         [InlineKeyboardButton("Live Chat Support", url="https://t.me/sandeepjaiswal123")]
     ])
