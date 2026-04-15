@@ -12,7 +12,7 @@ from io import BytesIO
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 # 🔥 DIRECT LINKS (TERE DIYE HUE)
-VIDEO_URL = "https://github.com/toptenowner999-maker/Jddhhdhsh-shaksjsj/raw/f1cc6c9d44c256dbbf0ff266269afd32cf387196/VID_20260415_164548_644.mp4"
+VIDEO_URL = "https://raw.githubusercontent.com/toptenowner999-maker/Jddhhdhsh-shaksjsj/cfa3e77fb4dfd4d8fb76f9442cb291b529507672/VID_20260415_165231_028.mp4"
 APK_URL = "https://github.com/toptenowner999-maker/Jddhhdhsh-shaksjsj/raw/f1cc6c9d44c256dbbf0ff266269afd32cf387196/ARYAN%20X%20SURESHOT%20PENEL_.apk"
 VOICE_URL = os.environ.get("VOICE_URL")
 
