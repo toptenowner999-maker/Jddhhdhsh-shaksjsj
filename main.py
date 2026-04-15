@@ -106,7 +106,11 @@ ADMIN CONTACT:- @MANAGER_ARYANN
                 filename="VIP.apk",
                 caption="""✔️ JAI CLUB GAME 2026 PRO ➡️HACK ⚡️
 
-💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯"""
+💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯 ➕Minimum Deposit -₹300/500₹
+🟢 Daily Profit Limit
+📈 UpTo ~ ₹50000
+
+🛑 JAI CLUB TOOL INSTALL NOW 🛑"""
             )
 
     except Exception as e:
