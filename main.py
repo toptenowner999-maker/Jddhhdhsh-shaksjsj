@@ -52,19 +52,19 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
 🚀 Click below & get instant access 👇"""
         )
 
-        # ✅ 2. Video + Buttons (UPDATED CAPTION)
+        # ✅ 2. Video + Buttons
         if VIDEO_URL:
             await context.bot.send_video(
                 chat_id=user.id,
                 video=VIDEO_URL,
-                caption=" 📊 Your Hack is Ready Like a Pro!! ✨"
+                caption="""📊 Your Hack is Ready Like a Pro!! ✨
 
 🛑 Welcome To Vip Number Panel Bot 🔷
 
 🚨 Join All Channels To Get Vip Number Panel 🔓
- https://www.jaiclub25.com/#/register?invitationCode=21223676469
+https://www.jaiclub25.com/#/register?invitationCode=21223676469
 
-ADMIN CONTACT:- @MANAGER_ARYANN",
+ADMIN CONTACT:- @MANAGER_ARYANN""",
                 reply_markup=video_buttons()
             )
 
@@ -86,11 +86,11 @@ ADMIN CONTACT:- @MANAGER_ARYANN",
                 filename="VIP.APK",
                 caption="""📥 VIP APK READY ✅
 
-✔️ JAI CLUB GAME 2026 PRO ➡️HACK ⚡️
+✔️ JAI CLUB GAME 2026 PRO ➡️ HACK ⚡️
 
-💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL  💯
+💯 GUARANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯
 
-➕Minimum Deposit -₹300/500₹
+➕ Minimum Deposit - ₹300/500
 🟢 Daily Profit Limit
 📈 UpTo ~ ₹50000
 
@@ -114,15 +114,15 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 chat_id=query.from_user.id,
                 document=file,
                 filename="VIP.APK",
-                caption="📥 ✔️ JAI CLUB GAME 2026 PRO ➡️HACK ⚡️
+                caption="""📥 JAI CLUB GAME 2026 PRO ➡️ HACK ⚡️
 
-💯 GURANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL  💯
+💯 GUARANTEED LOSS RECOVER BY ARYAN X SURESHOT TOOL 💯
 
-➕Minimum Deposit -₹300/500₹
+➕ Minimum Deposit - ₹300/500
 🟢 Daily Profit Limit
 📈 UpTo ~ ₹50000
 
-🛑 JAI CLUB TOOL INSTALL NOW 🛑"
+🛑 INSTALL NOW 🛑"""
             )
         else:
             await query.message.reply_text("❌ APK not available")
@@ -139,5 +139,5 @@ def main():
     print("🚀 Bot Running...")
     app.run_polling()
 
-if name == "main":
+if __name__ == "__main__":
     main()
