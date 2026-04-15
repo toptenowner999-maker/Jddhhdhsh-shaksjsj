@@ -57,7 +57,7 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_video(
                 chat_id=user.id,
                 video=VIDEO_URL,
-                caption=" 📊 Your Hack is Ready Like a Pro!!" ✨
+                caption=" 📊 Your Hack is Ready Like a Pro!! ✨"
 
 🛑 Welcome To Vip Number Panel Bot 🔷
 
