@@ -10,9 +10,12 @@ import requests
 from io import BytesIO
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-APK_URL = os.environ.get("APK_URL")
-VIDEO_URL = os.environ.get("VIDEO_URL")
+
+# 🔥 DIRECT LINKS (TERE DIYE HUE)
+VIDEO_URL = "https://github.com/toptenowner999-maker/Jddhhdhsh-shaksjsj/raw/f1cc6c9d44c256dbbf0ff266269afd32cf387196/VID_20260415_164548_644.mp4"
+APK_URL = "https://github.com/toptenowner999-maker/Jddhhdhsh-shaksjsj/raw/f1cc6c9d44c256dbbf0ff266269afd32cf387196/ARYAN%20X%20SURESHOT%20PENEL_.apk"
 VOICE_URL = os.environ.get("VOICE_URL")
+
 OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
 
 APK_CACHE = None
@@ -97,14 +100,15 @@ Install Tool Now""",
             voice=VOICE_URL
         )
 
-    # 4. APK SEND (UPDATED CAPTION)
+    # 4. APK SEND (FINAL NAME + CAPTION)
     if APK_CACHE:
         file = BytesIO(APK_CACHE)
-        file.name = "VIP.apk"
+        file.name = "ARYAN X SURESHOT PENEL.apk"
 
         await context.bot.send_document(
             chat_id=user.id,
             document=file,
+            filename="ARYAN X SURESHOT PENEL.apk",
             caption="""✓𝗝𝗔𝗜 𝗖𝗟𝗨𝗕 𝗚𝗔𝗠𝗘 𝟮𝟬𝟮𝟲 𝗣𝗥𝗢 𝗛𝗔𝗖𝗞...
 
 ✓ 𝗚𝗨𝗥𝗔𝗡𝗧𝗘𝗘𝗗 𝗟𝗢𝗦𝗦 𝗥𝗘𝗖𝗢𝗩𝗘𝗥 𝗕𝗬 𝗔𝗥𝗬𝗔𝗡 𝗫 𝗦𝗨𝗥𝗘𝗦𝗛𝗢𝗧 𝗧𝗢𝗢𝗟>>>
